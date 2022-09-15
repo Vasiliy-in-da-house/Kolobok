@@ -9,7 +9,7 @@ public class playermovement : MonoBehaviour
     public Rigidbody rb;
     public bool isGrounded;
 
-    public float runSpeed = 50f;
+    public float runSpeed = 1f;
     public float strafeSpeed = 5f;
     public float jumpForce = 15f;
 
@@ -78,7 +78,7 @@ public class playermovement : MonoBehaviour
     {
 
 
-        rb.AddForce(0, 0, runSpeed * Time.deltaTime);
+        rb.AddForce(0, 0, runSpeed);        
 
         if (strafeLeft)
         {
@@ -92,6 +92,7 @@ public class playermovement : MonoBehaviour
 
         if (doJump)
         {
+
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
 
             doJump = false;
